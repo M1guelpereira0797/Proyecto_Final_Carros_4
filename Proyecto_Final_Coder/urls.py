@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from vehiculo.views import (CarrosCrear, 
 DetalleCarros, CarroList, CarrosBorrar, BorrarCarros, ActualizarCarro)
+from mejorado.views import index 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,5 +33,6 @@ urlpatterns = [
     path("Lista/Crear", CarrosCrear.as_view()),
     path("Lista/<int:pk>/borrar" , CarrosBorrar.as_view()),
     path('Lista/<int:pk>/actualizar', ActualizarCarro.as_view()),
+    path("Inicio/", index ),
 ]
 
