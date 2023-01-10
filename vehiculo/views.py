@@ -92,22 +92,22 @@ class BorrarCarros(View):
         vehiculo= Vehiculo.objects.all()
         return render(request, self.template_name,{"vehiculo": Vehiculo})
 
-class DetalleCarros(DetailView):
+class DetalleCarros(DetailView):#listo 
   model = Vehiculo
 
-class CarroList(ListView):
+class CarroList(ListView):#listo
   model = Vehiculo
 
-class CarrosCrear(CreateView):
+class CarrosCrear(CreateView):#listo
     model = Vehiculo
     success_url = "/Lista"
     fields = ["marca_del_carro", "modelos_del_carro", "color_del_carro"]
 
-class CarrosBorrar(DeleteView):
+class CarrosBorrar(DeleteView): #listo
     model = Vehiculo
     success_url = "/Lista"
 
-class ActualizarCarro(UpdateView):
+class ActualizarCarro(UpdateView): #listo
   model = Vehiculo
   success_url = "/Lista"
   fields = ["marca_del_carro", "modelos_del_carro", "color_del_carro"]
