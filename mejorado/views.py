@@ -4,14 +4,17 @@ from mejorado.models import Carro
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from mejorado.forms import UsuarioForm
+
+@login_required
 def index(request):
     return render(request, "mejorado/index.html")
 
-class CarroDetalle(LoginRequiredMixin, DetailView):
+class CarroDetalle(DetailView):
     model= Carro
 
-class Carrolist(LoginRequiredMixin, ListView):
+class Carrolist(ListView):
     model= Carro
 
 class CarroCrear(LoginRequiredMixin, CreateView):

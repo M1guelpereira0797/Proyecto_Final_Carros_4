@@ -18,7 +18,7 @@ from django.urls import path
 #from vehiculo.views import (CarrosCrear, 
 #DetalleCarros, CarroList, CarrosBorrar, BorrarCarros, ActualizarCarro)
 from mejorado.views import index, Carrolist, CarroCrear, CarroDetalle, BorrarCarro, ActualizarCarro, UserSingUp, Userlogin, Userlogout
-
+from django.contrib.admin.views.decorators import staff_member_required
 urlpatterns = [
     path('admin/', admin.site.urls),
     #path('Bienvenida/', index), 
@@ -42,5 +42,6 @@ urlpatterns = [
     path("Inicio/registro/", UserSingUp.as_view(), name=("registro")),
     path("Inicio/login/", Userlogin.as_view(), name=("login")),
     path("Inicio/logout/", Userlogout.as_view(), name=("logout"))
+
 ]
 

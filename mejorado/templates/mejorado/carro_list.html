@@ -1,13 +1,17 @@
 {%extends "mejorado/base.html" %}
 
 {% block contenido %}
-<a href="{%url 'crear'%}"> Crear Carro</a>
+{% if user.is_authenticated %}
+    <a href="{%url 'crear'%}"> Crear Carro</a>
+{% endif%}
  <ul>
     {% for carro in object_list %}
     <li> {{carro.id}} &nbsp; {{carro.publicado_el}} &nbsp; {{carro.Marca_del_Carro}} 
+    {% if user.is_authenticated %}
         <a href="{% url 'borrar' carro.id %}"> Borrar Carro</a>
         <a href="{% url 'actualizar' carro.id %}"> Actualizar Carro</a>
         <a href="{% url 'detalle' carro.id  %}"> Ver detalle</a>
+    {%endif %}
     </li>
 {% endfor %}
  </ul>
