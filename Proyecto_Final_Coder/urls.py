@@ -27,7 +27,7 @@ urlpatterns = [
     path("Carros/Agregar", AgregarCarro.as_view()),
     path("Carros/Actualizar/<int:pk>", ActualizarCarros.as_view()),
     path("Carros/<int:pk>/detalle", DetalleCarros.as_view()),
-    path("Lista/", CarroList.as_view()),
-    path("Lista/Crear", CarrosCrear.as_view())
+    path("Panel/", CarroList.as_view()),
+    path("Panel/Crear", CarrosCrear.as_view())
 ]
 

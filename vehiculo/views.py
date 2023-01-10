@@ -91,6 +91,6 @@ class CarroList(ListView):
   model = Vehiculo
 
 class CarrosCrear(CreateView):
-    model=Vehiculo
-    success_url= "/Lista"
+    model = Vehiculo
+    success_url = " "
     fields = ["ID", "marca_del_carro", "modelos_del_carro", "color_del_carro"]
