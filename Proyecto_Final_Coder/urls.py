@@ -15,19 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from vehiculo.views import (index, buscar, mostrar_vehiculo, BuscarCarros, AgregarCarro, CarrosCrear, 
-ActualizarCarros,DetalleCarros, CarroList)
+from vehiculo.views import (CarrosCrear, 
+DetalleCarros, CarroList, CarrosBorrar, BorrarCarros, ActualizarCarro)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('Bienvenida/', index), 
-    path("buscar_carros/", buscar),
-    path("Carros", mostrar_vehiculo),
-    path("Carros/buscar", BuscarCarros.as_view()),
-    path("Carros/Agregar", AgregarCarro.as_view()),
-    path("Carros/Actualizar/<int:pk>", ActualizarCarros.as_view()),
-    path("Carros/<int:pk>/detalle", DetalleCarros.as_view()),
-    path("Panel/", CarroList.as_view()),
-    path("Panel/Crear", CarrosCrear.as_view())
+    #path('Bienvenida/', index), 
+    #path("buscar_carros/", buscar),
+    #path("Carros", mostrar_vehiculo),
+    #path("Carros/buscar", BuscarCarros.as_view()),
+    #path("Carros/Agregar", AgregarCarro.as_view()),
+    #path("Carros/Actualizar/<int:pk>", ActualizarCarros.as_view()),
+    #path("Carros/Borrar/<int:pk>" , BorrarCarros.as_view()),
+    #path("Carros/<int:pk>/detalle", DetalleCarros.as_view()),
+    path("Lista/", CarroList.as_view()),
+    path("Lista/Crear", CarrosCrear.as_view()),
+    path("Lista/<int:pk>/borrar" , CarrosBorrar.as_view()),
+    path('Lista/<int:pk>/actualizar', ActualizarCarro.as_view()),
 ]
 

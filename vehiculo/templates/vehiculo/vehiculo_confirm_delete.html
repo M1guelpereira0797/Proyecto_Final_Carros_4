@@ -7,14 +7,13 @@
     <title>Carros</title>
 </head>
 <body>
-<ul>
 
-{% block buscar %} {% endblock %}
-
-{% for vehiculo in object_list %}
-    <li> <h4>{{vehiculo}}</h4> </li>
-{% endfor %}    
-</ul>
+    <form method="post">
+        {% csrf_token %}
+        "¿ Estás seguro de borrar el Carro {{ object }} ?"
+        <input type="submit" value="SI">
+        <input type="button" value="NO">
+    </form>
 
 </body>
 </html>
