@@ -7,6 +7,12 @@
     <title>Carros</title>
 </head>
 <body>
-    <h1>Bienvenidos a mi pagina de ventas de carros</h1> 
+
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Agregar">
+    </form>
+
 </body>
 </html>

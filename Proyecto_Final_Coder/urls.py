@@ -15,9 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from vehiculo.views import index
+from vehiculo.views import (index, buscar, mostrar_vehiculo, BuscarCarros, AgregarCarro, CarrosCrear, 
+ActualizarCarros,DetalleCarros, CarroList)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('saludar/', index), # ESTA ES LA NUEVA FUNCTION
+    path('Bienvenida/', index), 
+    path("buscar_carros/", buscar),
+    path("Carros", mostrar_vehiculo),
+    path("Carros/buscar", BuscarCarros.as_view()),
+    path("Carros/Agregar", AgregarCarro.as_view()),
+    path("Carros/Actualizar/<int:pk>", ActualizarCarros.as_view()),
+    path("Carros/<int:pk>/detalle", DetalleCarros.as_view()),
+    path("Lista/", CarroList.as_view()),
+    path("Lista/Crear", CarrosCrear.as_view())
 ]
+

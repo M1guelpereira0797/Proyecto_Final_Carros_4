@@ -1,0 +1,13 @@
+{% extends 'vehiculo/base.html' %}
+{% block titulo%} Agregar Color, Modelo y Carro nuevo {% endblock %}
+{% block contenido %}
+  
+  <form action="Agregar" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Agregar">
+  </form>
+
+  <h2 style="color:green">{{msg_exito}}</h2>
+
+{% endblock %}

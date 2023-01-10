@@ -1,0 +1,16 @@
+{%extends "vehiculo/base.html" %}
+{%block titulo%} Buscar Marca del carro en la base de datos {% endblock%}
+{% block contenido%}
+
+    <form action="buscar" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Buscar">
+    </form>
+
+    {% for Vehiculo in lista_carros %}
+      <ul>
+        <li> Id: {{Vehiculo.id}} &nbsp;  Marca: {{Vehiculo.marca_del_carro}}, &nbsp;  Modelo:{{Vehiculo.modelos_del_carro}},  &nbsp; Color:{{Vehiculo.color_del_carro}}  </li>
+      </ul>
+    {% endfor %}
+{%endblock%}

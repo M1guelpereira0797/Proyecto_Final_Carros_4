@@ -1,0 +1,14 @@
+{%extends "vehiculo/base.html"%}
+{%block titulo%} Lista de todos mis Carros {%endblock%}
+{%block contenido %}
+    
+
+    {% for vehiculo in lista_carros %}
+        <ul>
+            <li> Id: {{vehiculo.id}} &nbsp;  Marca: {{vehiculo.marca_del_carro}}, &nbsp;  Modelo:{{vehiculo.modelos_del_carro}},  &nbsp; Color:{{vehiculo.color_del_carro}}   
+                <a href='Carros/Actualizar/{{ vehiculo.id }}'>Actualizar</a></li>
+           
+        </ul>
+    {% endfor %}
+    
+{%endblock%}
