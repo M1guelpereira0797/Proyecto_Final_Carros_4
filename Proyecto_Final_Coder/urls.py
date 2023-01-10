@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from vehiculo.views import (CarrosCrear, 
-DetalleCarros, CarroList, CarrosBorrar, BorrarCarros, ActualizarCarro)
-from mejorado.views import index 
+#from vehiculo.views import (CarrosCrear, 
+#DetalleCarros, CarroList, CarrosBorrar, BorrarCarros, ActualizarCarro)
+from mejorado.views import index, Carrolist, CarroCrear, CarroDetalle, BorrarCarro, ActualizarCarro, UserSingUp, Userlogin, Userlogout
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,10 +29,18 @@ urlpatterns = [
     #path("Carros/Actualizar/<int:pk>", ActualizarCarros.as_view()),
     #path("Carros/Borrar/<int:pk>" , BorrarCarros.as_view()),
     #path("Carros/<int:pk>/detalle", DetalleCarros.as_view()),
-    path("Lista/", CarroList.as_view()),
-    path("Lista/Crear", CarrosCrear.as_view()),
-    path("Lista/<int:pk>/borrar" , CarrosBorrar.as_view()),
-    path('Lista/<int:pk>/actualizar', ActualizarCarro.as_view()),
-    path("Inicio/", index ),
+    #path("Lista/", CarroList.as_view(), name= "Lista"),
+    #path("Lista/Crear", CarrosCrear.as_view()),
+    #path("Lista/<int:pk>/borrar" , CarrosBorrar.as_view()),
+    #path('Lista/<int:pk>/actualizar', ActualizarCarro.as_view()),
+    path("Inicio/", index, name=("Inicio") ),
+    path("Inicio/<int:pk>/detalle/", CarroDetalle.as_view(), name=("detalle")),
+    path("Inicio/listar/", Carrolist.as_view(), name=("listar")), 
+    path("Inicio/crear/", CarroCrear.as_view(), name=("crear")),
+    path("Inicio/<int:pk>/actualizar/", ActualizarCarro.as_view(), name=("actualizar")),
+    path("Inicio/<int:pk>/borrar", BorrarCarro.as_view(), name=("borrar")),
+    path("Inicio/registro/", UserSingUp.as_view(), name=("registro")),
+    path("Inicio/login/", Userlogin.as_view(), name=("login")),
+    path("Inicio/logout/", Userlogout.as_view(), name=("logout"))
 ]
 

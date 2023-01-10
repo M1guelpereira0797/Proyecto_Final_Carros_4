@@ -1,0 +1,14 @@
+{%extends "mejorado/base.html" %}
+
+{% block contenido %}
+<a href="{%url 'crear'%}"> Crear Carro</a>
+ <ul>
+    {% for carro in object_list %}
+    <li> {{carro.id}} &nbsp; {{carro.publicado_el}} &nbsp; {{carro.Marca_del_Carro}} 
+        <a href="{% url 'borrar' carro.id %}"> Borrar Carro</a>
+        <a href="{% url 'actualizar' carro.id %}"> Actualizar Carro</a>
+        <a href="{% url 'detalle' carro.id  %}"> Ver detalle</a>
+    </li>
+{% endfor %}
+ </ul>
+{%endblock %}
