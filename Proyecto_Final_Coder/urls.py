@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import path
 #from vehiculo.views import (CarrosCrear, 
 #DetalleCarros, CarroList, CarrosBorrar, BorrarCarros, ActualizarCarro)
-from mejorado.views import index, Carrolist, CarroCrear, CarroDetalle, BorrarCarro, ActualizarCarro, UserSingUp, Userlogin, Userlogout, AvatarActualizar
+from mejorado.views import index, Carrolist, CarroCrear, CarroDetalle, BorrarCarro, ActualizarCarro, UserSingUp, Userlogin, Userlogout, AvatarActualizar, UserActualizar, MensajeCrear, Mensajelist, MensajeDetalle
 from django.contrib.admin.views.decorators import staff_member_required
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -44,7 +44,12 @@ urlpatterns = [
     path("Inicio/registro/", UserSingUp.as_view(), name=("registro")),
     path("Inicio/login/", Userlogin.as_view(), name=("login")),
     path("Inicio/logout/", Userlogout.as_view(), name=("logout")),
-    path("Inicio/avatar/<int:pk>/actualizar/", AvatarActualizar.as_view(), name="Actualizar_Avatar")
+    path("Inicio/avatar/<int:pk>/actualizar/", AvatarActualizar.as_view(), name="Actualizar_Avatar"),
+    path("Inicio/users/<int:pk>/actualizar/", UserActualizar.as_view(), name="Actualizar_User" ),
+    path("Inicio/mensajes/crear/", MensajeCrear.as_view(), name="crear_mensajes" ),
+    path("Inicio/mensajes/<int:pk>/detalle/", MensajeDetalle.as_view(), name="Detalle_Mensaje" ),
+    path("Inicio/mensajes/listar/", Mensajelist.as_view(), name="Listar_Mensaje" ),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

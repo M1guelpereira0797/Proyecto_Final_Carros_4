@@ -4,6 +4,8 @@
 {% if user.is_authenticated %}
     <a href="{%url 'crear'%}"> Crear Carro</a>
     <a href="{%url 'Actualizar_Avatar' user.id %}"> Actualizar Avatar </a>
+    <a href="{%url 'Actualizar_User' user.id %}"> Actualizar Perfil </a>
+    <a href="{%url 'Listar_Mensaje' %}"> Mensaje </a>
 {% endif%}
  <ul>
     {% for carro in object_list %}

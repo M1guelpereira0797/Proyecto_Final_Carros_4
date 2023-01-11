@@ -1,0 +1,15 @@
+{%extends "mejorado/base.html" %}
+
+{% block contenido %}
+
+ <ul>
+    {% for mensaje in object_list %}
+    <li> {{mensaje.enviado_el}} &nbsp; {{mensaje.email}} &nbsp; {{mensaje.nombre}} 
+    {% if user.is_authenticated %}
+        <a href="{% url 'borrar' mensaje.id %}"> Borrar Mensaje</a>
+        <a href="{% url 'detalle' mensaje.id  %}"> Ver detalle</a>
+    {%endif %}
+    </li>
+{% endfor %}
+ </ul>
+{%endblock %}
