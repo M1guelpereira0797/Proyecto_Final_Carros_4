@@ -13,11 +13,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 #from vehiculo.views import (CarrosCrear, 
 #DetalleCarros, CarroList, CarrosBorrar, BorrarCarros, ActualizarCarro)
-from mejorado.views import index, Carrolist, CarroCrear, CarroDetalle, BorrarCarro, ActualizarCarro, UserSingUp, Userlogin, Userlogout
+from mejorado.views import index, Carrolist, CarroCrear, CarroDetalle, BorrarCarro, ActualizarCarro, UserSingUp, Userlogin, Userlogout, AvatarActualizar
 from django.contrib.admin.views.decorators import staff_member_required
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -41,7 +43,9 @@ urlpatterns = [
     path("Inicio/<int:pk>/borrar", BorrarCarro.as_view(), name=("borrar")),
     path("Inicio/registro/", UserSingUp.as_view(), name=("registro")),
     path("Inicio/login/", Userlogin.as_view(), name=("login")),
-    path("Inicio/logout/", Userlogout.as_view(), name=("logout"))
-
+    path("Inicio/logout/", Userlogout.as_view(), name=("logout")),
+    path("Inicio/avatar/<int:pk>/actualizar/", AvatarActualizar.as_view(), name="Actualizar_Avatar")
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

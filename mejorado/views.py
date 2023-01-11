@@ -6,6 +6,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from mejorado.forms import UsuarioForm
+from mejorado.models import Avatar
 
 @login_required
 def index(request):
@@ -43,3 +44,9 @@ class Userlogin(LoginView):
 
 class Userlogout(LogoutView):
     next_page= reverse_lazy ("listar")
+
+
+class AvatarActualizar(UpdateView):
+    model=Avatar
+    fields= ["imagen"]
+    success_url=reverse_lazy("listar")

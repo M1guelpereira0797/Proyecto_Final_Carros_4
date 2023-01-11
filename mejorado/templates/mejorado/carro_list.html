@@ -3,6 +3,7 @@
 {% block contenido %}
 {% if user.is_authenticated %}
     <a href="{%url 'crear'%}"> Crear Carro</a>
+    <a href="{%url 'Actualizar_Avatar' user.id %}"> Actualizar Avatar </a>
 {% endif%}
  <ul>
     {% for carro in object_list %}
